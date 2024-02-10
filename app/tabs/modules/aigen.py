@@ -1,13 +1,12 @@
 # created by DW for original project:
-import openai
+from openai import OpenAI
 import dotenv
 import os
 import platform
 
 dotenv.load_dotenv()
-OPENAI_API_KEY = os.getenv('OPENAI-KEY')
+client = OpenAI(api_key=os.getenv('OPENAI-KEY'))
 
-openai.api_key = OPENAI_API_KEY
 
 class AiGenerate:
     def __init__(self):
@@ -47,8 +46,8 @@ class AiGenerate:
     def generate_response(self, prompt, value):
         instructions = self.get_instructions_from_file(value)
         print(prompt)
-        response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo-1106",
+        response = client.chat.completions.create(
+            model="gpt-3.5-turbo-0125",
             messages=[
                 {"role": "system", "content": "Below this line are your instructions to strictly follow."},
                 {"role": "system", "content": instructions},
@@ -58,5 +57,5 @@ class AiGenerate:
             ],
             temperature=self.ai_temperature
         )
-        ai_response = response['choices'][0]['message']['content']
+        ai_response = response.choices[0].message.content
         return ai_response
