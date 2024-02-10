@@ -3,7 +3,6 @@ from tkinter import *
 
 import ttkbootstrap as ttk
 import customtkinter as ctk
-import yaml
 import os 
 import sys 
 
