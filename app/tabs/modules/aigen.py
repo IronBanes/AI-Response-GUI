@@ -42,11 +42,12 @@ class AiGenerate:
             with open(self.instructions3, 'r') as file:
                 return file.read()
 
-    def generate_response(self, prompt, value):
+    def generate_response(self, prompt, value, gptversion):
         instructions = self.get_instructions_from_file(value)
         print(prompt)
+        print(gptversion)
         response = client.chat.completions.create(
-            model="gpt-3.5-turbo-0125",
+            model=gptversion,
             messages=[
                 {"role": "system", "content": "Below this line are your instructions to strictly follow."},
                 {"role": "system", "content": instructions},

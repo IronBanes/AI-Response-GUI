@@ -53,4 +53,4 @@ class App(ttk.Window):
     def setheight(self, height):
         self.height = height
 
-App("AI Generator", (500, 500))
+App("AI Generator", (550, 550))
