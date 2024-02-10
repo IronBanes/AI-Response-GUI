@@ -28,7 +28,7 @@ def get_instructions_from_file(value):
             return file.read()
 
 def generate_response(prompt, value):
-    '''instructions = get_instructions_from_file(value)
+    instructions = get_instructions_from_file(value)
     print(prompt)
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo-1106",
@@ -42,5 +42,4 @@ def generate_response(prompt, value):
         temperature=ai_temperature
     )
     ai_response = response['choices'][0]['message']['content']
-    return ai_response'''
-    return "this is a test response"
+    return ai_response
