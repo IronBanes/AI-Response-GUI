@@ -23,6 +23,7 @@ Once both files are updated for your use case you should be ready to use the gen
 ![image](https://github.com/IronBanes/AI-Response-GUI/assets/19214784/b5f1901d-e410-4b84-947b-690825ab473a)
 
 The image processing portion of the GUI only needs a folder of images to be located after pressing the select folder button
+
 ![image](https://github.com/IronBanes/AI-Response-GUI/assets/19214784/9371017e-8b4c-41d4-be28-ca0bc55fd8c6)
 
 After selecting the folder you press start and it will generate an Excel sheet with the image information. 
