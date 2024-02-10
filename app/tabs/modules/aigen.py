@@ -1,4 +1,3 @@
-# created by DW for original project:
 from openai import OpenAI
 import dotenv
 import os
