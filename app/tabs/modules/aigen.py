@@ -8,12 +8,11 @@ OPENAI_API_KEY = os.getenv('OPENAI-KEY')
 
 openai.api_key = OPENAI_API_KEY
 
-
-instructions1 = "./memory/instructions.txt"
-instructions2 = "./memory/instructions1.txt"
-instructions3 = "./memory/instructions2.txt"
-filtered_words_path = "./memory/filtered_words.txt"
-chat_log = "./memory/chat_log.txt"
+instructions1 = "tabs/modules/memory/instructions.txt"
+instructions2 = "tabs/modules/memory/instructions1.txt"
+instructions3 = "tabs/modules/memory/instructions2.txt"
+filtered_words_path = "tabs/modules/memory/filtered_words.txt"
+chat_log = "tabs/modules/memory/chat_log.txt"
 ai_temperature = 0.5
 
 def get_instructions_from_file(value):

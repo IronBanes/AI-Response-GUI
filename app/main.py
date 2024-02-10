@@ -1,6 +1,7 @@
 import os
 import json
 import ctypes
+import platform
 
 import tkinter as tk
 from tkinter import *
@@ -13,9 +14,10 @@ from tabs.tab_image import TabImageFrame
 
 class App(ttk.Window):
     def __init__(self, title, size):
-        super().__init__(themename="ddarktheme")
+        super().__init__(themename="darkly")
         
-        ctypes.windll.shcore.SetProcessDpiAwareness(True)
+        if platform.system() == "Windows":
+            ctypes.windll.shcore.SetProcessDpiAwareness(True)
         
         self.title(title)
         
