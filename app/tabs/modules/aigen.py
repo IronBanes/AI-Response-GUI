@@ -12,7 +12,7 @@ openai.api_key = OPENAI_API_KEY
 class AiGenerate:
     def __init__(self):
         # Check if the system is Windows
-        if platform.system() == "Windows":
+        if platform.system() == "Windows" or platform.system() == "Darwin":
             current_dir = os.path.dirname(os.path.realpath(__file__))
             self.instructions1 = os.path.join(current_dir, "memory", "instructions.txt")
             self.instructions2 = os.path.join(current_dir, "memory", "instructions1.txt")
@@ -21,7 +21,7 @@ class AiGenerate:
             self.chat_log = os.path.join(current_dir, "memory", "chat_log.txt")
             self.ai_temperature = 0.5
             # ... and so on for the other file paths
-        elif platform.system() == "Darwin":
+        elif platform.system() == "Linux":
             self.instructions1 = "tabs/modules/memory/instructions.txt"
             self.instructions2 = "tabs/modules/memory/instructions1.txt"
             self.instructions3 = "tabs/modules/memory/instructions2.txt"
