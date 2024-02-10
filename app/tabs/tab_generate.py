@@ -16,21 +16,20 @@ print(relative_path)
 print(full_path)
 sys.path.insert(0, full_path)
 
-import aigen as ag 
-
-
+from aigen import AiGenerate
 
 class TabGenerateFrame(ttk.Frame):
     def __init__(self, parent):
         super().__init__(parent)
+        self.aigen_instance = AiGenerate()
         self.columnconfigure(0, weight=1)
         self.rowconfigure((0, 2), weight=1)
         self.rowconfigure((1,3), weight=2)
         
         self.string_to_number_mapping = {
-            ag.get_instructions_from_file(1): 1,
-            ag.get_instructions_from_file(2): 2,
-            ag.get_instructions_from_file(3): 3
+            self.aigen_instance.get_instructions_from_file(1): 1,
+            self.aigen_instance.get_instructions_from_file(2): 2,
+            self.aigen_instance.get_instructions_from_file(3): 3
         }
         self.selected_numerical_value = tk.IntVar()
 
@@ -62,7 +61,7 @@ class TabGenerateFrame(ttk.Frame):
         selected_numerical_value = self.string_to_number_mapping.get(selected_string)
         
         text = self.textbox.get("1.0", "end-1c")
-        generation = ag.generate_response(str(text), selected_numerical_value)
+        generation = self.aigen_instance.generate_response(str(text), selected_numerical_value)
         # clear generation text box
         self.generation_textbox.delete("1.0", tk.END)
         self.generation_textbox.insert(tk.END, generation)
