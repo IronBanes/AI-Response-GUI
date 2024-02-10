@@ -9,21 +9,6 @@ OPENAI_API_KEY = os.getenv('OPENAI-KEY')
 
 openai.api_key = OPENAI_API_KEY
 
-<<<<<<< Updated upstream
-# Get the directory of the current script file
-current_dir = os.path.dirname(os.path.realpath(__file__))
-
-# Construct the paths
-instructions1 = os.path.join(current_dir, "memory", "instructions.txt")
-instructions2 = os.path.join(current_dir, "memory", "instructions1.txt")
-instructions3 = os.path.join(current_dir, "memory", "instructions2.txt")
-filtered_words_path = os.path.join(current_dir, "memory", "filtered_words.txt")
-chat_log = os.path.join(current_dir, "memory", "chat_log.txt")
-
-ai_temperature = 0.5
-=======
->>>>>>> Stashed changes
-
 class AiGenerate:
     def __init__(self):
         # Check if the system is Windows
