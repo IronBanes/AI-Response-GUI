@@ -20,6 +20,7 @@ The first file to change is the .env file
 The next files to change are the instructions files with the apps\tabs\modules\memory to match the prompts you want to use
 
 Once both files are updated for your use case you should be ready to use the generate tab portion of the GUI to your needs. 
+
 ![image](https://github.com/IronBanes/AI-Response-GUI/assets/19214784/b5f1901d-e410-4b84-947b-690825ab473a)
 
 The image processing portion of the GUI only needs a folder of images to be located after pressing the select folder button
