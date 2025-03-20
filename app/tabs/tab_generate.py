@@ -51,7 +51,7 @@ class TabGenerateFrame(ttk.Frame):
             self,  
             textvariable=self.gptversion
         )
-        self.gptversion_combobox['values'] = ("gpt-3.5-turbo", "gpt-4-turbo-preview")
+        self.gptversion_combobox['values'] = ("gpt-3.5-turbo", "gpt-4-turbo-preview", "mistral")
         
         default_option = list(self.string_to_number_mapping.keys())[0]
         default_option_gpt = self.gptversion_combobox['values'][0]

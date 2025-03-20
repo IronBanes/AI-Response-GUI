@@ -1,6 +1,7 @@
 customtkinter==5.2.2
 openai==1.68.0
 pandas
+mistralai
 Pillow==9.0.1
 python-dotenv
 ttkbootstrap==1.10.1

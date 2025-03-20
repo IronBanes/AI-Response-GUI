@@ -2,6 +2,7 @@ from openai import OpenAI
 import dotenv
 import os
 import platform
+from mistralai import Mistral
 
 dotenv.load_dotenv()
 
@@ -43,14 +44,33 @@ class AiGenerate:
         instructions = self.get_instructions_from_file(value)
         print(prompt)
         print(gptversion)
-        response = client.chat.completions.create(model=gptversion,
-        messages=[
-            {"role": "system", "content": "Below this line are your instructions to strictly follow."},
-            {"role": "system", "content": instructions},
-            {"role": "system", "content": "Below this line is the prompt that you are formatting."},
-            {"role": "user", "content": prompt},
-            {"role": "user", "content": ""}
-        ],
-        temperature=self.ai_temperature)
-        ai_response = response.choices[0].message.content
-        return ai_response
+        if gptversion == "mistral":
+            print("THIS IS MISTAL, POGGIES")
+            api_key = os.environ["MISTRAL-KEY"]
+            model = "mistral-large-latest"
+            client = Mistral(api_key=api_key)
+
+            chat_response = client.chat.complete(
+                model = model,
+                messages = [
+                    {"role": "system", "content": "Below this line are your instructions to strictly follow.",},
+                    {"role": "system", "content": instructions},
+                    {"role": "system", "content": "Below this line is the prompt that you are formatting."},
+                    {"role": "user", "content": prompt},
+                    {"role": "user", "content": ""}
+                ]
+            )
+            ai_response = chat_response.choices[0].message.content
+            return ai_response
+        else:
+            response = client.chat.completions.create(model=gptversion,
+            messages=[
+                {"role": "system", "content": "Below this line are your instructions to strictly follow."},
+                {"role": "system", "content": instructions},
+                {"role": "system", "content": "Below this line is the prompt that you are formatting."},
+                {"role": "user", "content": prompt},
+                {"role": "user", "content": ""}
+            ],
+            temperature=self.ai_temperature)
+            ai_response = response.choices[0].message.content
+            return ai_response
